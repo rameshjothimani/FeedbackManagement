@@ -2,7 +2,10 @@
 
 The screenshots of the application is available at https://github.com/rameshjothimani/FeedbackManagement/blob/master/Customer%20Feedback%20Management%20_%20Scenarios_Screens.doc
 
-Story 1: As any user, I want to be able to send feedback via an online form, so that my opinion is taken into account.
+Story 1 :
+-----------
+
+As any user, I want to be able to send feedback via an online form, so that my opinion is taken into account.
 Acceptance criteria:
 When accessing the page, a form with 3 fields appears: Name (optional), Email address (optional), Message
 (mandatory).
@@ -70,7 +73,10 @@ Back End :
 _______________________________________________________________________________________________________________________________________
 _______________________________________________________________________________________________________________________________________
 
-Story 2: As a company administrator, I want to be able to list available feedback, so that I can decide what to do about it.
+Story 2 :
+-----------
+
+As a company administrator, I want to be able to list available feedback, so that I can decide what to do about it.
 Acceptance criteria:
 When accessing the page, a list appears with all feedback presently persisted. Attributes to show per submission: ID,
 Date of submission, Name, Email address, Message.
