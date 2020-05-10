@@ -191,6 +191,6 @@ Long Term :
 
 1. Code review
 
-2. Thorogh Scan of code for potential security vulnerability
+2. Thorough Scan of code for potential security vulnerability
 
 3. More unit tests to cover all possible cases
