@@ -200,3 +200,7 @@ Long Term :
 2. Thorough Scan of code for potential security vulnerability
 
 3. More unit tests to cover all possible cases
+
+4. In Feedback Management, more options can be added like deleting a feedback & so on. Also sort option can be given in screen with paging to navigate. Search feedback option can also be given if required.
+
+5. If necessary, security mechanism can be added.
