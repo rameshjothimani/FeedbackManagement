@@ -65,7 +65,8 @@ Back End :
 
 5. For all other error cases, HTTP 500 would be returned in the response
 
-
+_______________________________________________________________________________________________________________________________________
+_______________________________________________________________________________________________________________________________________
 
 Story 2: As a company administrator, I want to be able to list available feedback, so that I can decide what to do about it.
 Acceptance criteria:
@@ -73,3 +74,91 @@ When accessing the page, a list appears with all feedback presently persisted. A
 Date of submission, Name, Email address, Message.
 Notes:
 No need for authentication mechanism
+
+--- Changes Done ---
+--------------
+
+Front End :
+-----------
+
+1. An Angular Front End application is developed, which would be used for management of Feedback which exists in the Database
+
+2. The application calls the HTTP GET REST API - /getfeedback/ exposed in backend. The typical URL will be like        http://localhost:8080/getfeedback/
+
+3. The Service in Angular application receives the response from REST API & maps it to the corresponding elements to display in HTML Page (in tabular format)
+
+4. The GET request has no parameters to be passed
+
+5. The Angular application can be deployed seperately in a Web Server
+
+6. The application can be accessed normally through default URL http://localhost:4200/
+
+Back End :
+----------
+
+1. Developed a HTTP GET API /getfeedback/ which would return the list of feedbacks available in the Database. The response would be like below,
+
+    {
+     "status": "OK",
+     "feedbacks":[
+        {
+         "feedbackId": 1,
+         "name": "Ramesh",
+         "email": "ramesh@test.com",
+         "message": "This is a Test Feedback from screen",
+         "submissionDate": "2020-05-10"
+       }
+      ]
+    }
+    
+2. The feedbacks would be returned as a List in the GET Response with HTTP 200 - OK.
+
+3. If there are no feedbacks available in Database HTTP 204 - No Conent would be returned .
+
+4. If there are any other possible errors , HTTP 500 - Internal Server Error would be returned.
+
+
+
+Database :
+----------
+
+1. For this application H2 in-memory databse has been used to accelerate the development.
+
+2. The contents of the db would be lost once the server is stopped
+
+3. The DB can be accessed through URL , http://localhost:8080/h2-console/ once the SpringBoot application is launched.
+
+4. The default password to login to database is password. The details are available in application.properties in resources folder.
+
+Note : H2 In-memory DB is used temporarily & would not be used in a normal scenario
+
+
+_______________________________________________________________________________________________________________________________________
+
+
+Assumptions :
+------------
+
+1. The application is expected to do a basic CRUD
+
+2. Micro-service approach has not been implemented, assuming that application doesn't need to have very high availability
+
+3. Angular could be used to develop both customer feedback & management screens
+
+
+_______________________________________________________________________________________________________________________________________
+
+Potential Improvements :
+------------------------
+
+Short Term :
+------------
+
+1. Angular could be used for both Customer Feedback & Customer Feedback Management applications. If required it can be split as two different applications.
+
+2. Add Unit tests for Front End
+
+3. Document the REST APIs with Swagger / Open API Specification
+
+4. Add necessary Unit tests for Back End
+
