@@ -1,5 +1,7 @@
 # FeedbackManagement
 
+The screenshots of the application is available at https://github.com/rameshjothimani/FeedbackManagement/blob/master/Customer%20Feedback%20Management%20_%20Scenarios_Screens.doc
+
 Story 1: As any user, I want to be able to send feedback via an online form, so that my opinion is taken into account.
 Acceptance criteria:
 When accessing the page, a form with 3 fields appears: Name (optional), Email address (optional), Message
@@ -162,3 +164,33 @@ Short Term :
 
 4. Add necessary Unit tests for Back End
 
+5. Add Custom Error Handling
+
+6. Do not catch Generic Exception
+
+
+Medium Term :
+------------
+
+1. Add Logging Framework to log to the right log files with right log level
+
+2. Add a Unique ID like UUID in every log entry. This will help to differentiate between two different hits / users
+
+3. Read the error messages from property file instead of hard coding or having it in java files itself
+
+4. Implement a Data Layer
+
+5. Connect to a real DB instead of in-memory DB
+
+6. Integrate code quality & security scans
+
+
+
+Long Term :
+------------
+
+1. Code review
+
+2. Thorogh Scan of code for potential security vulnerability
+
+3. More unit tests to cover all possible cases
