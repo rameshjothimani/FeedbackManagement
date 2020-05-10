@@ -1,0 +1,22 @@
+<h1>Customer Feedback</h1>
+<table border="1">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>E-Mail</th>
+      <th>Message</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor= "let feedback of feedbacks">
+      <td>{{feedback.feedbackId}}</td>
+      <td>{{feedback.name}}</td>
+      <td>{{feedback.email}}</td>
+      <td>{{feedback.message}}</td>
+      <td>{{feedback.submissionDate}}</td>
+    </tr>
+
+  </tbody>
+</table>
