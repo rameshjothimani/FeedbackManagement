@@ -9,22 +9,11 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class FeedbackResponse {
 
+    @JsonProperty("status")
     private String responseMessage;
 
-    @JsonProperty("feedbackList")
+    @JsonProperty("feedbacks")
     private List<FeedbackModel> feedbackModelList;
-
-    FeedbackModel[] feedbackModels;
-
-    public FeedbackModel[] getFeedbackModels() {
-        return feedbackModels;
-    }
-
-    public void setFeedbackModels(FeedbackModel[] feedbackModels) {
-        this.feedbackModels = feedbackModels;
-    }
-
-
 
     public String getResponseMessage() {
         return responseMessage;

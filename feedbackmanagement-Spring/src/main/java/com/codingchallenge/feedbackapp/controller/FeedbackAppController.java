@@ -1,5 +1,6 @@
 package com.codingchallenge.feedbackapp.controller;
 
+import com.codingchallenge.feedbackapp.common.CommonConstants;
 import com.codingchallenge.feedbackapp.request.FeedbackRequest;
 import com.codingchallenge.feedbackapp.response.FeedbackResponse;
 import com.codingchallenge.feedbackapp.service.FeedbackAppService;
@@ -10,6 +11,11 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+/*
+ * Created by Ramesh Jothimani on 08/05/2020
+ *
+ * */
 
 @RestController
 @ComponentScan("com.codingchallenge.feedbackapp")
@@ -22,7 +28,8 @@ public class FeedbackAppController {
     private FeedbackAppService feedbackAppService;
 
     @CrossOrigin
-    @GetMapping("/getfeedback")
+    @GetMapping(CommonConstants.URL_GET_FEEDBACK_LIST)
+    //Fetch all the feedback which exists in Database
     public ResponseEntity<FeedbackResponse> getFeedback() {
         FeedbackResponse feedbackResponse = new FeedbackResponse();
         try {
@@ -36,12 +43,9 @@ public class FeedbackAppController {
         return new ResponseEntity<>(feedbackResponse, HttpStatus.OK);
     }
 
-    @GetMapping("/feedback/{name}")
-    public FeedbackRequest getFeedbackByName(@PathVariable String name) {
-        return feedbackAppService.filterFeedBackByName(name);
-    }
 
-    @PostMapping("/postfeedback")
+    @PostMapping(CommonConstants.URL_POST_FEEDBACK)
+    //Store the Feedback to Database
     public ResponseEntity<FeedbackResponse> postFeedback(@RequestBody FeedbackRequest feedbackRequest) {
         FeedbackResponse feedbackResponse = new FeedbackResponse();
         try {
@@ -49,7 +53,7 @@ public class FeedbackAppController {
         } catch (Exception e) {
             return new ResponseEntity<>(feedbackResponse, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity<>(feedbackResponse, HttpStatus.OK);
+        return new ResponseEntity<>(feedbackResponse, HttpStatus.CREATED);
     }
 
 }

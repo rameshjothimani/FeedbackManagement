@@ -7,13 +7,16 @@ import com.codingchallenge.feedbackapp.model.FeedbackModel;
 import com.codingchallenge.feedbackapp.request.FeedbackRequest;
 import com.codingchallenge.feedbackapp.response.FeedbackResponse;
 import com.codingchallenge.feedbackapp.service.FeedbackAppService;
+import com.codingchallenge.feedbackapp.util.ValidatorUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
+/*
+ * Created by Ramesh Jothimani on 09/05/2020
+ *
+ * */
 @Service
 public class FeedbackAppServiceImpl implements FeedbackAppService {
 
@@ -26,26 +29,19 @@ public class FeedbackAppServiceImpl implements FeedbackAppService {
     @Autowired
     private ResponseMapper responseMapper;
 
-    List<FeedbackRequest> responseList = new ArrayList<>(Arrays.asList(
-            new FeedbackRequest("Ramesh", "100", "TestFeedback"),
-            new FeedbackRequest("Arun", "200", "Arun - TestFeedback")));
+    @Autowired
+    private ValidatorUtil validatorUtil;
 
     @Override
     public FeedbackResponse getFeedBack() {
         List<FeedbackModel> feedbackModelList = new ArrayList<>();
-        feedbackRepository.findAll()
-                .forEach(feedbackModelList::add);
-
+        feedbackRepository.findAll().forEach(feedbackModelList::add);
         return responseMapper.mapDbObjectToResponse(feedbackModelList);
     }
 
     @Override
-    public FeedbackRequest filterFeedBackByName(String name) {
-        return responseList.stream().filter(t -> t.getName().equals(name)).findFirst().get();
-    }
-
-    @Override
     public FeedbackResponse saveFeedback(FeedbackRequest feedbackRequest) {
+        validatorUtil.validateRequest(feedbackRequest);
         feedbackRepository.save(requestMapper.mapRequestToDbObject(feedbackRequest));
         return responseMapper.mapSuccessfulInsertResponse();
     }

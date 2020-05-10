@@ -7,13 +7,6 @@ public class FeedbackRequest {
     private String message;
 
     public FeedbackRequest() {
-
-    }
-
-    public FeedbackRequest(String name, String email, String message) {
-        this.name = name;
-        this.email = email;
-        this.message = message;
     }
 
     public String getName() {
@@ -37,6 +30,12 @@ public class FeedbackRequest {
     }
 
     public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public FeedbackRequest(String name, String email, String message) {
+        this.name = name;
+        this.email = email;
         this.message = message;
     }
 }

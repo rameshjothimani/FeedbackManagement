@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Customer Feedback</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="/js/scripts.js"></script>
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.serialize-object.js"></script>
+</head>
+
+<body>
+
+<div class="wrapper">
+  <h2>Customer Feedback</h2>
+  <div id="error_message"></div>
+  <div id="success_message"></div>
+  <form id="feedbackForm" onsubmit="return validate();">
+    <div class="input_field">
+      <input type="text" placeholder="Name (Optional)" id="name" name="customer[name]">
+    </div>
+    <div class="input_field">
+      <input type="text" placeholder="Email (Optional)" id="email" name="customer[email]">
+    </div>
+    <div class="input_field">
+      <textarea placeholder="Message (Mandatory)" id="message" name="customer[message]"></textarea>
+    </div>
+    <div class="btn">
+      <input type="submit">
+    </div>
+  </form>
+</div>
+</body>
+
+</html>
