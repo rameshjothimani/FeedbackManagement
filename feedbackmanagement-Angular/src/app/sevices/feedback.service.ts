@@ -10,7 +10,7 @@ import { catchError, tap, map } from 'rxjs/operators';
 })
 export class FeedbackService {
 
- // private productUrl='http://localhost:8080/getfeedback/';
+ //private productUrl='http://localhost:8080/getfeedback/';
  private productUrl='assets/feedbacks.json';
 
   constructor(private http: HttpClient){}
